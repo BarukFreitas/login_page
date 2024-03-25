@@ -1,24 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 import './loginValidation'
-import validation from './loginValidation';
+import Validation from './loginValidation';
 
-function login() {
+function Login() {
     const [values, setValues] = useState({
       email: '',
       password: ''
     });
 
     const [errors, setErrors] = useState({})
-
-    const handleSubmit =(event) =>{
-      event.preventDefault();
-      setErrors(validation(values));
-    }
-
     const handleInput = (event) =>{
       setValues(prev => ({...prev, [event.target.name]: [event.target.value]}))
     }
+    const handleSubmit =(event) =>{
+      event.preventDefault();
+      setErrors(Validation(values));
+    }
+
+    
 
   return (
     <div className='d-flex justify-content-center align-items-center bg-primary vh-100'>
@@ -46,4 +46,4 @@ function login() {
   )
 }
 
-export default login
+export default Login
